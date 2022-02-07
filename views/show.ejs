@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Show Post</title>
+
+    <style>
+        section{
+            border: 10px solid /*#C37B89*/ #FF9292;
+            padding: 16px;
+            margin: 40px auto;
+            width: 60vw;
+            border-radius: 12px;
+            background-color: #1C7947;
+            color: #FFFD95;
+        }
+        body{
+            background-color:rgb(255, 249, 182);
+        }
+    </style>
+
+</head>
+<body>
+    
+    <section>
+        <p>
+            id: <strong><%= post._id %> </strong>
+        </p>
+        <h2>Title: <%= post.title %> </h2>
+        <p>Content: <%= post.description %> </p>
+        <p>Author: <%= post.author %> </p>
+    </section>
+
+</body>
+</html>

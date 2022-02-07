@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+</head>
+
+<style>
+
+    h1{
+        text-align: center;
+        color:black;
+        background-color: #95DAC1;
+        border-radius: 16px;
+        border-width: 6px;
+        padding: 8px;
+
+    }
+  /*  #new{
+        border: 2px solid black;
+        margin-left: 46%;
+        padding: 6px;
+        text-decoration: none;
+        background-color: cadetblue;
+    }*/
+    #new{
+    width: 300px;
+    height: 70px;
+    color: whitesmoke;
+    background-color: #CE1F6A;
+    font-size: 22px;
+    margin: 18px auto;
+    outline: none;
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 9px #E4FBFF;
+    cursor: pointer;
+    padding: 8px;
+    
+}
+#new:hover{
+    background-color: #E4FBFF;
+    box-shadow: 0 9px #CE1F6A;
+    color:#CE1F6A;
+}
+#new:active {
+    box-shadow: 0 5px blue;
+    transform: translateY(4px);
+  }
+    ul{
+        margin-left: 25%;
+        list-style: none;
+    }
+    li{
+        width: 600px;
+        border-width: 2px ;
+        border-radius: 8px;
+        box-shadow: 1px 1px 2px rgb(190, 255, 239);
+        padding: 16px;
+        margin-bottom: 10px;
+    }
+    li{
+        background: rgb(251,183,222);
+background: linear-gradient(90deg, rgba(251,183,222,1) 5%, rgba(187,232,100,1) 35%, rgba(77,220,191,1) 77%, rgba(0,212,255,1) 100%);
+    }
+body{
+    background-color: #FEFBF3;
+}
+#delete{
+    background-color: #CE1F6A;
+    width: 65px;
+    height: 26px;
+    font-size: 14px;
+    color:whitesmoke;
+    border-radius: 16px;
+    border: none;
+    outline: none;
+    
+}
+#delete:hover{
+    background-color: red;
+}
+#edit{
+    background-color: #CE1F6A;
+    padding: 5px;
+    width: 75px;
+    height: 30px;
+    font-size: 14px;
+    color:whitesmoke;
+    border-radius: 16px;
+    border: none;
+    outline: none;
+    text-decoration: none;
+}
+#edit:hover{
+    background-color: aqua;
+}
+
+
+#view{
+    background-color: #CE1F6A;
+    padding: 5px;
+    width: 75px;
+    height: 30px;
+    font-size: 14px;
+    color:whitesmoke;
+    border-radius: 16px;
+    border: none;
+    outline: none;
+    text-decoration: none;
+}
+
+#view:hover{
+    background-color: greenyellow;
+}
+</style>
+
+<body>
+    
+    <h1>Posts</h1>
+
+    <a id="new" href="/posts/new" >Add New Post</a>
+
+    <ul>
+
+        <% for(let post of posts){ %> 
+
+            <li>
+                <h3><%= post.title %> </h3>
+                <p><%= post.description %> </p>
+                <p>- <%= post.author %> </p>
+
+                <a href="/posts/<%= post._id %> " id="view">View</a><br><br>
+                <a href="/posts/<%= post._id %>/edit " id="edit">Edit</a>
+
+                
+                <form action="/posts/<%= post._id %>?_method=DELETE" method="POST">
+                    <button type="submit" id="delete">Delete</button>
+                </form>
+            </li>
+
+        <% } %> 
+    </ul>
+
+</body>
+</html>
